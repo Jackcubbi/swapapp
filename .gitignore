@@ -1,0 +1,12 @@
+# Vertocci.com project .gitignore folders and files.
+
+# Uploads
+/uploads/
+/public/images/
+
+# Log files
+*.log
+
+# htaccess
+/.htaccess
+/error_log
