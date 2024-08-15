@@ -1,4 +1,7 @@
-<?php include 'includes/header.php'; ?>
+<?php
+include 'config/db.php';
+include 'includes/header.php'; ?>
+
 <!-- Hero Section with Full Page Slider -->
 <section class="hero">
   <div class="container">
