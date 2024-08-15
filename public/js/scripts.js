@@ -40,7 +40,7 @@ const dots = document.querySelectorAll('.nav-dot');
 function showSlide(index) {
   const totalSlides = slides.length;
   currentSlide = (index + totalSlides) % totalSlides;
-  document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 100}%)`;
+  document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 33.33}%)`;
 
   dots.forEach(dot => dot.classList.remove('active'));
   dots[currentSlide].classList.add('active');
@@ -51,8 +51,8 @@ dots.forEach((dot, index) => {
 });
 
 // Автоматическая смена слайдов каждые 5 секунд
-/* setInterval(() => {
+setInterval(() => {
   showSlide(currentSlide + 1);
 }, 5000);
 
-showSlide(0); */
+showSlide(0); 
