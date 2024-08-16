@@ -152,6 +152,20 @@ nav ul li a:hover {
   margin-bottom: 30px;
 }
 
+.btn {
+  background-color: #ff6600;
+  color: #fff;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #e65c00;
+}
+
 
 /* Slider Navigation */
 .slider-navigation {
