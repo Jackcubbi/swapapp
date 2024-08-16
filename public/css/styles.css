@@ -191,7 +191,9 @@ nav ul li a:hover {
 /* Стили для основного контента */
 h1,
 h2 {
+  text-align: center;
   color: #007bff;
+  padding: 1rem;
 }
 
 form {
@@ -199,6 +201,8 @@ form {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 2rem auto;
 }
 
 form label {
@@ -211,6 +215,7 @@ form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form input[type="file"],
+form input[type="number"],
 form textarea,
 form select {
   width: 100%;
@@ -218,6 +223,10 @@ form select {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+form input[type="number"] {
+  max-width: 150px;
 }
 
 form button {

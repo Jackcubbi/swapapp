@@ -37,10 +37,15 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.nav-dot');
 
+var element = document.querySelector('.slide');
+if (element !== null) {
+  element.style.display = 'block';
+}
+
 function showSlide(index) {
   const totalSlides = slides.length;
   currentSlide = (index + totalSlides) % totalSlides;
-  document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 33.33}%)`;
+  document.querySelector('.slider').style.transform = 'translateX(-${currentSlide * 33.33}%)';
 
   dots.forEach(dot => dot.classList.remove('active'));
   dots[currentSlide].classList.add('active');
