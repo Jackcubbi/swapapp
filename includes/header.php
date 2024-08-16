@@ -20,7 +20,7 @@
           </div>
           <div class="right-menu">
             <?php if (isset($_SESSION['user_id'])): ?>
-              <li><a href="add_item.php">Добавить товар</a></li>
+              <li><a href="account.php">Личный кабинет</a></li>
               <li><a href="logout.php">Выход</a></li>
             <?php else: ?>
               <li><a href="login.php">Вход</a></li>

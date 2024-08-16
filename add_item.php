@@ -38,7 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <label for="image">Изображение:</label>
   <input type="file" name="image" required>
 
-  <button type="submit">Добавить товар</button>
+  <div class="add-buttons">
+    <button type="submit">Добавить товар</button>
+    <a class="back-btn" href="account.php">Назад</a>
+  </div>
 </form>
 
 <?php include 'includes/footer.php'; ?>

@@ -87,6 +87,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -151,19 +152,6 @@ nav ul li a:hover {
   margin-bottom: 30px;
 }
 
-.btn {
-  background-color: #ff6600;
-  color: #fff;
-  padding: 12px 25px;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #e65c00;
-}
 
 /* Slider Navigation */
 .slider-navigation {
@@ -187,6 +175,7 @@ nav ul li a:hover {
 .nav-dot.active {
   background-color: #ff6600;
 }
+
 
 /* Стили для основного контента */
 h1,
@@ -232,7 +221,7 @@ form input[type="number"] {
 form button {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #ff6600;
   color: white;
   border: none;
   border-radius: 4px;
@@ -241,8 +230,9 @@ form button {
 }
 
 form button:hover {
-  background-color: #0056b3;
+  background-color: #e65c00;
 }
+
 
 /* Стили для списка товаров */
 ul {
@@ -275,6 +265,7 @@ ul li h3 {
 ul li p {
   margin: 5px 0;
 }
+
 
 /* Стили для секции товаров */
 .products {
@@ -365,6 +356,46 @@ ul li p {
     /* Одна карточка на ряд на маленьких экранах */
   }
 }
+
+
+/* Стили для страницы личного кабинета */
+.account-menu {
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+/* Стили для добавления и редактирования товаров */
+.add-item,
+.edit-item {
+
+  .add-buttons,
+  .edit-buttons {
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    button {
+      width: auto;
+    }
+
+    a.back-btn {
+      padding: 12px;
+      text-decoration: none;
+      border: 1px solid;
+      border-radius: 4px;
+    }
+  }
+}
+
+.my-products li:hover {
+  transform: translate(0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Стили для формы редактирования */
+
 
 
 /* Footer */
