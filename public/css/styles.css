@@ -87,7 +87,6 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-
 /* Hero Section */
 .hero {
   position: relative;
@@ -126,15 +125,15 @@ nav ul li a:hover {
 }
 
 .slide1 {
-  background: url('../images/slide1.jpg') no-repeat center center/cover;
+  background: url("../images/slide1.jpg") no-repeat center center/cover;
 }
 
 .slide2 {
-  background: url('../images/slide2.jpg') no-repeat center center/cover;
+  background: url("../images/slide2.jpg") no-repeat center center/cover;
 }
 
 .slide3 {
-  background: url('../images/slide3.jpg') no-repeat center center/cover;
+  background: url("../images/slide3.jpg") no-repeat center center/cover;
 }
 
 .slide-content {
@@ -145,6 +144,8 @@ nav ul li a:hover {
 .slide-content h1 {
   font-size: 48px;
   margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 10px black;
 }
 
 .slide-content p {
@@ -165,7 +166,6 @@ nav ul li a:hover {
 .btn:hover {
   background-color: #e65c00;
 }
-
 
 /* Slider Navigation */
 .slider-navigation {
@@ -189,7 +189,6 @@ nav ul li a:hover {
 .nav-dot.active {
   background-color: #ff6600;
 }
-
 
 /* Стили для основного контента */
 h1,
@@ -247,7 +246,6 @@ form button:hover {
   background-color: #e65c00;
 }
 
-
 /* Стили для списка товаров */
 ul {
   padding: 0;
@@ -280,14 +278,13 @@ ul li p {
   margin: 5px 0;
 }
 
-
 /* Стили для секции товаров */
 .products {
-  padding: 40px 0;
   background-color: #f9f9f9;
 }
 
-.products h2 {
+.products h2,
+.my-account h2 {
   text-align: center;
   font-size: 36px;
   margin-bottom: 40px;
@@ -371,7 +368,6 @@ ul li p {
   }
 }
 
-
 /* Стили для страницы личного кабинета */
 .account-menu {
   padding: 1rem 0;
@@ -381,10 +377,8 @@ ul li p {
 /* Стили для добавления и редактирования товаров */
 .add-item,
 .edit-item {
-
   .add-buttons,
   .edit-buttons {
-
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -407,10 +401,7 @@ ul li p {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-
 /* Стили для формы редактирования */
-
-
 
 /* Footer */
 footer {
