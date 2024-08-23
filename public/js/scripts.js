@@ -10,6 +10,42 @@ window.addEventListener("scroll", () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Функция для подтверждения предложений обмена
+  const tradeLinks = document.querySelectorAll('a[href^="trade.php"]');
+  tradeLinks.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      const confirmation = confirm(
+        "Вы уверены, что хотите предложить обмен этим товаром?"
+      );
+      if (!confirmation) {
+        event.preventDefault();
+      }
+    });
+  });
+
+  // Всплывающее уведомление при успешных действиях
+  const notification = document.querySelector(".notification");
+  if (notification) {
+    setTimeout(() => {
+      notification.style.display = "none";
+    }, 3000);
+  }
+});
+
+//Home page Hero slider
+const header = document.querySelector(".page-header");
+const toggleClass = "is-sticky";
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > 100) {
+    header.classList.add(toggleClass);
+  } else {
+    header.classList.remove(toggleClass);
+  }
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
   // Функция для подтверждения предложений обмена
@@ -68,4 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Слайды или точки навигации не найдены на этой странице.');
   }
 });
+
+
 
