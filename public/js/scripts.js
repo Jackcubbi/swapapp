@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
               // Удаляем карточку товара из DOM
               this.closest('.item-card').remove();
             } else {
-              alert('Произошла ошибка при удалении товара.');
+              alert('Товар не возможно удалить, он добавлен в обмен.');
             }
           })
           .catch(error => {

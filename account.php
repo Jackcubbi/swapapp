@@ -30,7 +30,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
       <ul>
         <?php foreach ($items as $item): ?>
-          <li>
+          <li class="item-card">
             <img src="uploads/<?= $item['image']; ?>" alt="<?= $item['name']; ?>" width="100">
             <h3><?= $item['name']; ?></h3>
             <p>Цена: $<?= $item['price']; ?></p>
