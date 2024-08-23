@@ -33,26 +33,39 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.nav-dot');
+document.addEventListener('DOMContentLoaded', function () {
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.nav-dot');
 
-function showSlide(index) {
-  const totalSlides = slides.length;
-  currentSlide = (index + totalSlides) % totalSlides;
-  document.querySelector('.slider').style.transform = 'translateX(-${currentSlide * 33.33}%)';
+  // Проверка на наличие слайдов и точек навигации
+  if (slides.length > 0 && dots.length > 0) {
+    function showSlide(index) {
+      const totalSlides = slides.length;
+      currentSlide = (index + totalSlides) % totalSlides;
+      var slider = document.querySelector('.slider');
 
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[currentSlide].classList.add('active');
-}
+      if (slider) {
+        // Если элемент найден, выполняем код для слайдера
+        slider.style.transform = `translateX(-${currentSlide * 100 / totalSlides}%)`;
+      }
 
-dots.forEach((dot, index) => {
-  dot.addEventListener('click', () => showSlide(index));
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentSlide].classList.add('active');
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showSlide(index));
+    });
+
+    // Автоматическая смена слайдов каждые 5 секунд
+    setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 5000);
+
+    showSlide(0);
+  } else {
+    console.log('Слайды или точки навигации не найдены на этой странице.');
+  }
 });
 
-// Автоматическая смена слайдов каждые 5 секунд
-setInterval(() => {
-  showSlide(currentSlide + 1);
-}, 5000);
-
-showSlide(0); 
