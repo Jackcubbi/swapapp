@@ -302,6 +302,7 @@ ul li p {
 }
 
 .items-container li {
+  position: relative;
   display: block;
   background-color: #fff;
   border-radius: 12px;
@@ -377,6 +378,7 @@ ul li p {
 /* Стили для добавления и редактирования товаров */
 .add-item,
 .edit-item {
+
   .add-buttons,
   .edit-buttons {
     display: flex;
@@ -401,7 +403,29 @@ ul li p {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Стили для формы редактирования */
+/* Стили для формы редактирования и удаления */
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: background 0.3s;
+  font-size: 1.2rem;
+  /* Размер иконки */
+  color: #f00;
+  /* Цвет иконки */
+}
+
+.delete-btn:hover {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.delete-btn i {
+  display: block;
+}
+
 
 /* Footer */
 footer {

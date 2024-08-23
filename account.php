@@ -36,6 +36,11 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <p>Цена: $<?= $item['price']; ?></p>
             <p><?= $item['description']; ?></p>
             <a href="edit_item.php?item_id=<?= $item['id']; ?>">Редактировать</a>
+
+            <!-- Иконка удаления -->
+            <button class="delete-btn" data-id="<?= $item['id']; ?>">
+              <i class="fas fa-trash-alt"></i>
+            </button>
           </li>
         <?php endforeach; ?>
       </ul>

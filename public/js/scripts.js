@@ -67,8 +67,41 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 5000);
 
     showSlide(0);
-  } else {
-    console.log('Слайды или точки навигации не найдены на этой странице.');
   }
 });
 
+
+//Remove item from my account
+document.addEventListener('DOMContentLoaded', function () {
+  const deleteButtons = document.querySelectorAll('.delete-btn');
+
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const itemId = this.getAttribute('data-id');
+
+      if (confirm('Вы уверены, что хотите удалить этот товар?')) {
+        fetch('delete_item.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            id: itemId,
+          }),
+        })
+          .then(response => response.text())
+          .then(result => {
+            if (result === 'success') {
+              // Удаляем карточку товара из DOM
+              this.closest('.item-card').remove();
+            } else {
+              alert('Произошла ошибка при удалении товара.');
+            }
+          })
+          .catch(error => {
+            console.error('Ошибка:', error);
+          });
+      }
+    });
+  });
+});
