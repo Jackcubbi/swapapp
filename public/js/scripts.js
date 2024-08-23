@@ -10,42 +10,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Функция для подтверждения предложений обмена
-  const tradeLinks = document.querySelectorAll('a[href^="trade.php"]');
-  tradeLinks.forEach((link) => {
-    link.addEventListener("click", function (event) {
-      const confirmation = confirm(
-        "Вы уверены, что хотите предложить обмен этим товаром?"
-      );
-      if (!confirmation) {
-        event.preventDefault();
-      }
-    });
-  });
-
-  // Всплывающее уведомление при успешных действиях
-  const notification = document.querySelector(".notification");
-  if (notification) {
-    setTimeout(() => {
-      notification.style.display = "none";
-    }, 3000);
-  }
-});
-
-//Home page Hero slider
-const header = document.querySelector(".page-header");
-const toggleClass = "is-sticky";
-
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
-  if (currentScroll > 100) {
-    header.classList.add(toggleClass);
-  } else {
-    header.classList.remove(toggleClass);
-  }
-});
-
 
 document.addEventListener('DOMContentLoaded', function () {
   // Функция для подтверждения предложений обмена
@@ -79,15 +43,18 @@ document.addEventListener('DOMContentLoaded', function () {
     function showSlide(index) {
       const totalSlides = slides.length;
       currentSlide = (index + totalSlides) % totalSlides;
-      var slider = document.querySelector('.slider');
 
+      var slider = document.querySelector('.slider');
       if (slider) {
-        // Если элемент найден, выполняем код для слайдера
-        slider.style.transform = `translateX(-${currentSlide * 100 / totalSlides}%)`;
+        // Корректный расчет процента для трансформации
+        const slideWidth = 100 / totalSlides;
+        slider.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
       }
 
       dots.forEach(dot => dot.classList.remove('active'));
-      dots[currentSlide].classList.add('active');
+      if (dots[currentSlide]) {
+        dots[currentSlide].classList.add('active');
+      }
     }
 
     dots.forEach((dot, index) => {
@@ -104,6 +71,4 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Слайды или точки навигации не найдены на этой странице.');
   }
 });
-
-
 
