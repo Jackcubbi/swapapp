@@ -79,29 +79,61 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', function () {
       const itemId = this.getAttribute('data-id');
 
-      if (confirm('Вы уверены, что хотите удалить этот товар?')) {
-        fetch('delete_item.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams({
-            id: itemId,
-          }),
-        })
-          .then(response => response.text())
-          .then(result => {
-            if (result === 'success') {
-              // Удаляем карточку товара из DOM
-              this.closest('.item-card').remove();
-            } else {
-              alert('Товар не возможно удалить, он добавлен в обмен.');
-            }
+      Swal.fire({
+        title: 'Вы уверены?',
+        text: "Это действие нельзя будет отменить!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Да, удалить!',
+        cancelButtonText: 'Отмена'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch('delete_item.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              id: itemId,
+            }),
           })
-          .catch(error => {
-            console.error('Ошибка:', error);
-          });
-      }
+            .then(response => response.text())
+            .then(result => {
+              if (result === 'success') {
+                Swal.fire(
+                  'Удалено!',
+                  'Ваш товар был удален.',
+                  'success'
+                ).then(() => {
+                  // Удаляем карточку товара из DOM
+                  this.closest('.item-card').remove();
+                });
+              } else if (result === 'in_trade') {
+                Swal.fire(
+                  'Ошибка!',
+                  'Этот товар не может быть удалён, так как он участвует в обмене.',
+                  'error'
+                );
+              } else {
+                Swal.fire(
+                  'Ошибка!',
+                  'Произошла ошибка при удалении товара.',
+                  'error'
+                );
+              }
+            })
+            .catch(error => {
+              console.error('Ошибка:', error);
+              Swal.fire(
+                'Ошибка!',
+                'Произошла ошибка при выполнении запроса.',
+                'error'
+              );
+            });
+        }
+      });
     });
   });
 });
