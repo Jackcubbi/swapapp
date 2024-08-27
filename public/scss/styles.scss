@@ -9,7 +9,7 @@ Version 1.0.0
 @import 'variables';
 @import 'mixins';
 
-/* Colors */
+/* Colors variables */
 $color_1: #333;
 $color_2: #fff;
 $color_3: #007bff;
@@ -27,22 +27,6 @@ $background-color_6: white;
 $background-color_7: #f9f9f9;
 $background-color_8: #333;
 
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-/* Стили для основного контента */
-/* Адаптивность для меньших экранов */
-/* Стили для формы редактирования и удаления */
-/* Footer */
-/* Адаптивность */
 * {
   margin: 0;
   padding: 0;
@@ -107,38 +91,55 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
-}
 
-.page-header.is-sticky {
-  position: fixed;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  animation: slideDown 0.35s ease-out;
-}
+  &.is-sticky {
+    position: fixed;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.35s ease-out;
 
-.left-menu,
-.right-menu {
-  display: flex;
-}
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
 
-nav {
-  ul {
-    list-style-type: none;
+      to {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .left-menu,
+  .right-menu {
     display: flex;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
+  }
 
-    li {
-      margin: 0 10px;
+  nav {
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
 
-      a {
-        color: $color_3;
-        text-decoration: none;
-        font-weight: bold;
+      li {
+        margin: 0 10px;
+        background-color: $background-color_6;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
 
-        &:hover {
-          text-decoration: underline;
+        a {
+          color: $color_3;
+          text-decoration: none;
+          font-weight: bold;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -362,76 +363,6 @@ form.add-item {
     margin-bottom: 40px;
     color: $color_1;
   }
-}
-
-ul {
-  padding: 0;
-  list-style-type: none;
-
-  li {
-    background-color: $background-color_6;
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    img {
-      max-width: 150px;
-      margin-right: 20px;
-      border-radius: 4px;
-    }
-
-    h3 {
-      margin: 0;
-      font-size: 1.5em;
-    }
-
-    p {
-      margin: 5px 0;
-    }
-  }
-}
-
-
-/* ---------- Styles for the personal account page ---------- */
-.my-products {
-  .my-account {
-    h2 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 40px;
-      color: $color_1;
-    }
-
-    .account-menu {
-      padding: 1rem 0;
-      margin-bottom: 2rem;
-
-      .add-item {
-        a {
-          width: 100%;
-          padding: 12px;
-          color: $color_1;
-          background-color: $background-color_3;
-          color: $color_2;
-          border-radius: 4px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: .3s;
-          text-decoration: none;
-          box-shadow: 0 1px 5px #6d6d6d;
-
-          &:hover {
-            background-color: $background-color_4;
-            box-shadow: inset 0 0 4px rgba(107, 107, 107, 1);
-          }
-        }
-      }
-    }
-  }
 
   ul {
     display: flex;
@@ -493,34 +424,162 @@ ul {
       }
     }
   }
-}
 
-
-
-
-
-.delete-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  transition: background 0.3s;
-  font-size: 1.2rem;
-  color: $color_6;
-
-  &:hover {
-    background: rgba(255, 0, 0, 0.1);
+  @media (max-width: 992px) {
+    .items-container {
+      li {
+        width: calc(50% - 20px);
+      }
+    }
   }
 
-  i {
-    display: block;
+  @media (max-width: 600px) {
+    .items-container {
+      li {
+        width: 100%;
+      }
+    }
   }
 }
 
 
+/* ---------- Styles for the personal account page ---------- */
+.my-products {
+  .my-account {
+    h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: $color_1;
+    }
 
+    .account-menu {
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+
+      .add-item {
+        a {
+          width: 100%;
+          padding: 12px;
+          color: $color_1;
+          background-color: $background-color_3;
+          color: $color_2;
+          border-radius: 4px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: .3s;
+          text-decoration: none;
+          box-shadow: 0 1px 5px #6d6d6d;
+
+          &:hover {
+            background-color: $background-color_4;
+            box-shadow: inset 0 0 4px rgba(107, 107, 107, 1);
+          }
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        position: relative;
+        display: block;
+        background-color: $background-color_5;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: calc(33.333% - 20px);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 8px;
+          margin: 0;
+        }
+
+        h3 {
+          font-size: 22px;
+          margin: 15px 0;
+          color: $color_1;
+        }
+
+        p {
+          font-size: 16px;
+          color: $color_5;
+          margin-bottom: 15px;
+        }
+
+        a {
+          display: inline-block;
+          background-color: $background-color_3;
+          color: $color_2;
+          padding: 12px 20px;
+          text-decoration: none;
+          font-size: 16px;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: $background-color_4;
+          }
+        }
+
+        .delete-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          transition: background 0.3s;
+          font-size: 1.2rem;
+          color: $color_6;
+
+          &:hover {
+            background: rgba(255, 0, 0, 0.1);
+          }
+
+          i {
+            display: block;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 992px) {
+      .items-container {
+        li {
+          width: calc(50% - 20px);
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      .items-container {
+        li {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+/* ---------- Footer Styles ---------- */
 footer {
   background-color: $background-color_8;
   color: $color_2;
@@ -548,40 +607,6 @@ footer {
 
       &:hover {
         color: $color_7;
-      }
-    }
-  }
-}
-
-@media (max-width: 992px) {
-  .items-container {
-    li {
-      width: calc(50% - 20px);
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .items-container {
-    li {
-      width: 100%;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-    padding: 10px;
-  }
-
-  ul {
-    li {
-      flex-direction: column;
-      align-items: flex-start;
-
-      img {
-        margin-bottom: 10px;
       }
     }
   }

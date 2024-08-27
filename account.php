@@ -19,7 +19,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php include 'includes/header.php'; ?>
 
 
-<section class="my-products items-container">
+<section class="my-products">
   <div class="container">
     <div class="my-account">
       <h2>Мои товары</h2>
@@ -28,22 +28,24 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <a href="add_item.php">Добавить товар</a>
         </div>
       </div>
-      <ul>
-        <?php foreach ($items as $item): ?>
-          <li class="item-card">
-            <img src="uploads/<?= $item['image']; ?>" alt="<?= $item['name']; ?>" width="100">
-            <h3><?= $item['name']; ?></h3>
-            <p>Цена: $<?= $item['price']; ?></p>
-            <p><?= $item['description']; ?></p>
-            <a href="edit_item.php?item_id=<?= $item['id']; ?>">Редактировать</a>
+      <div class="items-container">
+        <ul>
+          <?php foreach ($items as $item): ?>
+            <li class="item-card">
+              <img src="uploads/<?= $item['image']; ?>" alt="<?= $item['name']; ?>" width="100">
+              <h3><?= $item['name']; ?></h3>
+              <p>Цена: $<?= $item['price']; ?></p>
+              <p><?= $item['description']; ?></p>
+              <a href="edit_item.php?item_id=<?= $item['id']; ?>">Редактировать</a>
 
-            <!-- Иконка удаления -->
-            <button class="delete-btn" data-id="<?= $item['id']; ?>">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+              <!-- Иконка удаления -->
+              <button class="delete-btn" data-id="<?= $item['id']; ?>">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
