@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scss": "node-sass --output-style compressed -o public/css public/scss",
+    "scss:watch": "npm run scss -- --watch",
+    "start": "npm-run-all --parallel scss:watch"
   },
   "repository": {
     "type": "git",
