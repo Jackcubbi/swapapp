@@ -24,7 +24,7 @@
           <div class="right-menu">
             <?php if (isset($_SESSION['user_id'])): ?>
               <li><a href="account.php">Личный кабинет</a></li>
-              <li><a href="logout.php">Выход</a></li>
+              <li><a href="logout.php" class="logout-btn">Выход</a></li>
             <?php else: ?>
               <li><a href="login.php">Вход</a></li>
               <li><a href="register.php">Регистрация</a></li>
