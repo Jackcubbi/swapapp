@@ -4,10 +4,9 @@ Author: Rostsin.com
 Version 1.0.0
 ------------------- */
 
-
 // Project Main Styles
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
 /* Colors variables */
 $color_1: #333;
@@ -81,6 +80,110 @@ h2 {
   }
 }
 
+form {
+  background-color: $background-color_6;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 2rem auto;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 150px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: $background-color_3;
+    color: $color_4;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $background-color_4;
+    }
+  }
+
+  .add-buttons,
+  .edit-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    button {
+      width: auto;
+    }
+
+    a.back-btn {
+      padding: 12px;
+      text-decoration: none;
+      border: 1px solid;
+      border-radius: 4px;
+    }
+  }
+}
 
 /* ---------- Header styles ---------- */
 header {
@@ -138,14 +241,12 @@ header {
           font-weight: bold;
 
           &:hover {
-            text-decoration: underline;
           }
         }
       }
     }
   }
 }
-
 
 /* ---------- Hero Section ---------- */
 .hero {
@@ -233,7 +334,6 @@ header {
   }
 }
 
-
 /* ---------- Styles for product list ---------- */
 .my-products {
   li {
@@ -243,7 +343,6 @@ header {
     }
   }
 }
-
 
 /* ---------- Styles for adding and editing products ---------- */
 form.edit-item,
@@ -352,7 +451,6 @@ form.add-item {
   }
 }
 
-
 /* ---------- Styles for the product section ---------- */
 .products {
   background-color: $background-color_7;
@@ -442,7 +540,6 @@ form.add-item {
   }
 }
 
-
 /* ---------- Styles for the personal account page ---------- */
 .my-products {
   .my-account {
@@ -467,7 +564,7 @@ form.add-item {
           border-radius: 4px;
           font-size: 16px;
           cursor: pointer;
-          transition: .3s;
+          transition: 0.3s;
           text-decoration: none;
           box-shadow: 0 1px 5px #6d6d6d;
 
@@ -577,7 +674,6 @@ form.add-item {
     }
   }
 }
-
 
 /* ---------- Footer Styles ---------- */
 footer {
