@@ -1,3 +1,17 @@
+<?php
+
+include 'functions.php';
+
+if (isset($_GET['lang'])) {
+  $_SESSION['lang'] = $_GET['lang'];
+}
+
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en';
+$translations = loadLanguage($lang);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -17,10 +31,14 @@
     <div class="container">
       <nav>
         <ul class="main-menu">
+
           <div class="left-menu">
             <li><a href=" index.php">Главная</a></li>
             <li><a href="items.php">Товары</a></li>
           </div>
+
+          <?php echo $translations['welcome']; ?>
+
           <div class="right-menu">
             <?php if (isset($_SESSION['user_id'])): ?>
               <li><a href="account.php">Личный кабинет</a></li>
