@@ -30,6 +30,7 @@
               <li><a href="register.php">Регистрация</a></li>
             <?php endif; ?>
           </div>
+
         </ul>
       </nav>
     </div>

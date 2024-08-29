@@ -66,6 +66,10 @@ h2 {
   padding: 1rem;
 }
 
+ul {
+  list-style: none;
+}
+
 .btn {
   background-color: $background-color_3;
   color: $color_2;
@@ -684,6 +688,7 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
+  overflow: hidden;
 
   .container {
     display: flex;
@@ -691,10 +696,55 @@ footer {
     align-items: center;
     width: 90%;
     margin: 0 auto;
+
+    .footer-columns {
+      .language-select {
+        .language-dropdown {
+          cursor: pointer;
+          text-decoration: none;
+          font-weight: bold;
+          color: $color_2;
+          text-decoration: underline;
+          border-radius: 5px;
+          &:hover {
+            background-color: #ddd;
+          }
+        }
+
+        .dropdown-content {
+          display: none;
+          /*position: absolute;*/
+          background-color: $background-color_1;
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+          list-style-type: none;
+          padding: 10px 0;
+          margin: 0;
+          border-radius: 5px;
+
+          li {
+            padding: 10px 15px;
+
+            a {
+              text-decoration: none;
+              color: #333;
+              &:hover {
+                background-color: #ddd;
+              }
+            }
+          }
+        }
+
+        &:hover .dropdown-content {
+          display: block;
+        }
+      }
+    }
   }
 
   .socials {
     display: flex;
+    padding: 0.5rem 1rem;
 
     a {
       color: $color_2;
