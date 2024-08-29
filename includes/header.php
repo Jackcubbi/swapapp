@@ -1,7 +1,6 @@
 <?php
+
 include_once 'functions.php';
-require 'init_languages.php';
-include_once './change_language.php';
 ?>
 
 
