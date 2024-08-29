@@ -2,8 +2,8 @@
   <div class="container">
     <div class="footer-columns">
       <ul class="footer-menu">
-        <li><a href="index.php">Главная</a></li>
-        <li><a href="items.php">Товары</a></li>
+        <li><a href=" index.php"><?= __('main_page'); ?></a></li>
+        <li><a href="items.php"><?= __('products'); ?></a></li>
         <form action="change_language.php" method="POST">
           <select name="lang" onchange="this.form.submit()">
             <option value="ru" <?= $GLOBALS['lang']->getLocale() === 'ru' ? 'selected' : ''; ?>>Русский</option>
@@ -26,7 +26,7 @@
         <a href="#">Instagram</a>
       </div>
 
-      <div class="">&copy; 2024 Обмен товарами. Все права защищены.</div>
+      <div class="">&copy; <?= '2020 - ' . date("Y") . ' ' . __('all_rights_reserved'); ?></div>
     </div>
   </div>
 </footer>

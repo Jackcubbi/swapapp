@@ -22,10 +22,10 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <section class="my-products">
   <div class="container">
     <div class="my-account">
-      <h2>Мои товары</h2>
+      <h2><?= __('my_products'); ?></h2>
       <div class="account-menu">
         <div class="add-item">
-          <a href="add_item.php">Добавить товар</a>
+          <a href="add_item.php"><?= __('add_product'); ?></a>
         </div>
       </div>
       <div class="items-container">
@@ -34,9 +34,9 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <li class="item-card">
               <img src="uploads/<?= $item['image']; ?>" alt="<?= $item['name']; ?>" width="100">
               <h3><?= $item['name']; ?></h3>
-              <p>Цена: $<?= $item['price']; ?></p>
+              <p><?= __('price'); ?>: €<?= $item['price']; ?></p>
               <p><?= $item['description']; ?></p>
-              <a href="edit_item.php?item_id=<?= $item['id']; ?>">Редактировать</a>
+              <a href="edit_item.php?item_id=<?= $item['id']; ?>"><?= __('edit'); ?></a>
 
               <!-- Иконка удаления -->
               <button class="delete-btn" data-id="<?= $item['id']; ?>">

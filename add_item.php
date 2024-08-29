@@ -24,23 +24,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php include 'includes/header.php'; ?>
 
-<h2>Добавить товар</h2>
+<h2><?= __('add_product'); ?></h2>
 <form class="add-item" method="POST" enctype="multipart/form-data">
-  <label for="name">Название:</label>
+  <label for="name"><?= __('product_title'); ?>:</label>
   <input type="text" name="name" required>
 
-  <label for="description">Описание:</label>
+  <label for="description"><?= __('description'); ?>:</label>
   <textarea name="description" required></textarea>
 
-  <label for="price">Цена:</label>
+  <label for="price"><?= __('price'); ?> €:</label>
   <input type="number" name="price" step="0.01" min="0" required>
 
-  <label for="image">Изображение:</label>
+  <label for="image"><?= __('picture'); ?>:</label>
   <input type="file" name="image" required>
 
   <div class="add-buttons">
-    <button type="submit">Добавить товар</button>
-    <a class="back-btn" href="account.php">Назад</a>
+    <button type="submit"><?= __('add_product'); ?></button>
+    <a class="back-btn" href="account.php"><?= __('back'); ?></a>
   </div>
 </form>
 
