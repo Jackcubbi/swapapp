@@ -33,7 +33,9 @@ $translations = loadLanguage($lang);
         <ul class="main-menu">
 
           <div class="left-menu">
-            <li><a href=" index.php">Главная</a></li>
+            <li><a href=" index.php">
+                <?= $translations['main_page']; ?>
+              </a></li>
             <li><a href="items.php">Товары</a></li>
           </div>
 
