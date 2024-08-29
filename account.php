@@ -1,6 +1,6 @@
 <?php
 include 'config/db.php';
-include 'includes/functions.php';
+include_once 'includes/functions.php';
 
 if (!isLoggedIn()) {
   header('Location: login.php');

@@ -1,13 +1,20 @@
+<?php
+include_once 'functions.php';
+require 'init_languages.php';
+include_once './change_language.php';
+?>
+
 <footer>
   <div class="container">
     <div class="footer-columns">
       <ul class="footer-menu">
         <li><a href="index.php">Главная</a></li>
         <li><a href="items.php">Товары</a></li>
-        <form method="post" action="change_language.php">
-          <select name="language" onchange="this.form.submit()">
-            <option value="ru" <?php echo isset($_SESSION['lang']) && $_SESSION['lang'] == 'ru' ? 'selected' : ''; ?>>Русский</option>
-            <option value="en" <?php echo isset($_SESSION['lang']) && $_SESSION['lang'] == 'en' ? 'selected' : ''; ?>>English</option>
+        <form action="change_language.php" method="POST">
+          <select name="lang" onchange="this.form.submit()">
+            <option value="ru" <?= $GLOBALS['lang']->getLocale() === 'ru' ? 'selected' : ''; ?>>Русский</option>
+            <option value="en" <?= $GLOBALS['lang']->getLocale() === 'en' ? 'selected' : ''; ?>>English</option>
+            <!-- Добавьте другие языки по мере необходимости -->
           </select>
         </form>
       </ul>

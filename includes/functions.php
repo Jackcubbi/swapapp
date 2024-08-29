@@ -1,4 +1,7 @@
 <?php
+include_once 'init_languages.php';
+
+
 function isLoggedIn()
 {
   return isset($_SESSION['user_id']);
@@ -19,17 +22,7 @@ function getUserById($db, $user_id)
 
 
 //Language Loading function
-function __($message)
+function __($key)
 {
-  if (isset($GLOBALS['lang'])) {
-    return $GLOBALS['lang']->trans($message);
-  } else {
-    return $message; // Вернуть исходное сообщение, если переводчик не инициализирован
-  }
-}
-
-function setLanguage($lang)
-{
-  $_SESSION['lang'] = $lang;
-  include 'init_translation.php'; // Перезагрузить переводчик с новым языком
+  return $GLOBALS['lang']->trans($key);
 }
