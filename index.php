@@ -10,7 +10,11 @@ include 'includes/header.php'; ?>
         <div class="slide-content">
           <h1>Обменивайте товары с легкостью</h1>
           <p>Присоединяйтесь к тысячам пользователей, обменивающих товары по всему миру.</p>
-          <a href="register.php" class="btn">Начать сейчас</a>
+          <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="items.php" class="btn">Посмотреть товары</a>
+          <?php else: ?>
+            <a href="register.php" class="btn">Начать сейчас</a>
+          <?php endif; ?>
         </div>
       </div>
       <div class="slide slide2">
@@ -24,7 +28,11 @@ include 'includes/header.php'; ?>
         <div class="slide-content">
           <h1>Удобный интерфейс</h1>
           <p>Обменивайте свои товары легко и быстро с нашего сайта.</p>
-          <a href="login.php" class="btn">Войти</a>
+          <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="items.php" class="btn">Посмотреть товары</a>
+          <?php else: ?>
+            <a href="login.php" class="btn">Войти</a>
+          <?php endif; ?>
         </div>
       </div>
     </div>
