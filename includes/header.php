@@ -1,15 +1,7 @@
 <?php
 
 include 'functions.php';
-
-if (isset($_GET['lang'])) {
-  $_SESSION['lang'] = $_GET['lang'];
-}
-
-$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en';
-$translations = loadLanguage($lang);
-?>
-
+include 'init_languages.php'; ?>
 
 
 <!DOCTYPE html>
@@ -33,13 +25,11 @@ $translations = loadLanguage($lang);
         <ul class="main-menu">
 
           <div class="left-menu">
-            <li><a href=" index.php">
-                <?= $translations['main_page']; ?>
-              </a></li>
+            <li><a href=" index.php">Главная</a></li>
             <li><a href="items.php">Товары</a></li>
           </div>
 
-          <?php echo $translations['welcome']; ?>
+          <?php echo __('welcome'); ?>
 
           <div class="right-menu">
             <?php if (isset($_SESSION['user_id'])): ?>
@@ -50,7 +40,6 @@ $translations = loadLanguage($lang);
               <li><a href="register.php">Регистрация</a></li>
             <?php endif; ?>
           </div>
-
         </ul>
       </nav>
     </div>
