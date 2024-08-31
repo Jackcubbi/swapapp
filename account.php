@@ -2,6 +2,7 @@
 include 'config/db.php';
 include_once 'includes/functions.php';
 
+// Проверка, чтобы пользователь был залогинен
 if (!isLoggedIn()) {
   header('Location: login.php');
   exit();
@@ -10,9 +11,20 @@ if (!isLoggedIn()) {
 // Получаем ID текущего пользователя
 $userId = $_SESSION['user_id'];
 
+// Получаем текущий язык из сессии или куки
+$currentLang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'ru';
+
+
+var_dump($_SESSION['lang']);
+
 // Получаем все товары, добавленные текущим пользователем
-$stmt = $db->prepare("SELECT * FROM items WHERE user_id = ?");
-$stmt->execute([$userId]);
+$stmt = $db->prepare("
+    SELECT items.id, items.image, items.price, items_lang.name, items_lang.description
+    FROM items
+    JOIN items_lang ON items.id = items_lang.item_id AND items_lang.language = ?
+    WHERE items.user_id = ?
+");
+$stmt->execute([$currentLang, $userId]);
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -32,10 +44,10 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <ul>
           <?php foreach ($items as $item): ?>
             <li class="item-card">
-              <img src="uploads/<?= $item['image']; ?>" alt="<?= $item['name']; ?>" width="100">
-              <h3><?= $item['name']; ?></h3>
-              <p><?= __('price'); ?>: €<?= $item['price']; ?></p>
-              <p><?= $item['description']; ?></p>
+              <img src="uploads/<?= $item['image']; ?>" alt="<?= htmlspecialchars($item['name']); ?>" width="100">
+              <h3><?= htmlspecialchars($item['name']); ?></h3>
+              <p><?= __('price'); ?>: €<?= htmlspecialchars($item['price']); ?></p>
+              <p><?= htmlspecialchars($item['description']); ?></p>
               <a href="edit_item.php?item_id=<?= $item['id']; ?>"><?= __('edit'); ?></a>
 
               <!-- Иконка удаления -->

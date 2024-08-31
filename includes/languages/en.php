@@ -34,6 +34,9 @@ return [
   'exit_alert'            => 'Are you sure you want to exit?',
   'yes_button'            => 'Yes',
   'no_button'             => 'No',
+  'select_language'       => 'Select language',
+
+
 
 
   // Добавьте другие переводы

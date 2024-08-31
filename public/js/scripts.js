@@ -176,3 +176,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 }); */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const languageSelect = document.getElementById("languageSelect");
+  const languageFields = document.querySelectorAll(".language-fields");
+
+  languageSelect.addEventListener("change", function () {
+    const selectedLang = this.value;
+
+    languageFields.forEach((field) => {
+      if (field.getAttribute("data-lang") === selectedLang) {
+        field.style.display = "block";
+      } else {
+        field.style.display = "none";
+      }
+    });
+  });
+
+  // Инициализация, чтобы отображать поля по умолчанию
+  languageSelect.dispatchEvent(new Event("change"));
+});
