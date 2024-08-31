@@ -14,18 +14,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php include 'includes/header.php'; ?>
 
-<h2>Регистрация</h2>
+<h2><?= __('register'); ?></h2>
 <form method="POST">
-  <label for="username">Имя пользователя:</label>
+  <label for="username"><?= __('username'); ?>:</label>
   <input type="text" name="username" required>
 
-  <label for="email">Email:</label>
+  <label for="email"><?= __('email'); ?>:</label>
   <input type="email" name="email" required>
 
-  <label for="password">Пароль:</label>
+  <label for="password"><?= __('password'); ?>:</label>
   <input type="password" name="password" required>
 
-  <button type="submit">Зарегистрироваться</button>
+  <button type="submit"><?= __('register_btn'); ?></button>
 </form>
 
 <?php include 'includes/footer.php'; ?>

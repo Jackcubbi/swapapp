@@ -20,15 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php include 'includes/header.php'; ?>
 
-<h2>Вход</h2>
+<h2><?= __('login'); ?></h2>
 <form method="POST">
-  <label for="username">Имя пользователя:</label>
+  <label for="username"><?= __('username'); ?>:</label>
   <input type="text" name="username" required>
 
-  <label for="password">Пароль:</label>
+  <label for="password"><?= __('password'); ?>:</label>
   <input type="password" name="password" required>
 
-  <button type="submit">Войти</button>
+  <button type="submit"><?= __('login'); ?></button>
   <?php if (isset($error)) {
     echo "<p>$error</p>";
   } ?>
