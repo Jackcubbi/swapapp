@@ -14,6 +14,7 @@ return [
   'register'              => 'Registration',
   'register_btn'          => 'Register',
   'products'              => 'Products',
+  'products_list'         => 'Products list',
   'my_products'           => 'My products',
   'add_product'           => 'Add product',
   'view_product'          => 'View product',
@@ -30,7 +31,9 @@ return [
   'products_swap'         => 'Offer an products swap',
   'swap_select_product'   => 'Select your item for swap',
   'swap_offer'            => 'Offer an swap',
-
+  'exit_alert'            => 'Are you sure you want to exit?',
+  'yes_button'            => 'Yes',
+  'no_button'             => 'No',
 
 
   // Добавьте другие переводы

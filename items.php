@@ -8,7 +8,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC); ?>
 <section class="products">
   <div class="container">
     <div class="items-container">
-      <h2>Список товаров</h2>
+      <h2><?= __('products_list'); ?></h2>
       <ul>
         <?php foreach ($items as $item): ?>
           <li>
@@ -18,11 +18,11 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC); ?>
               <img src="uploads/<?= $item['image']; ?>" alt="<?= $item['name']; ?>" width="100">
             <?php endif; ?>
             <h3><?= $item['name']; ?></h3>
-            <p>Цена: $<?= $item['price']; ?></p>
+            <p><?= __('price'); ?>: $<?= $item['price']; ?></p>
             <p><?= $item['description']; ?></p>
             <p>Продавец: <?= $item['username']; ?></p>
 
-            <a href="trade.php?item_id=<?= $item['id']; ?>">Предложить обмен</a>
+            <a href="trade.php?item_id=<?= $item['id']; ?>" class="trade-btn"><?= __('swap_offer'); ?></a>
           </li>
         <?php endforeach; ?>
       </ul>

@@ -34,7 +34,14 @@ include_once 'functions.php';
           <div class="right-menu">
             <?php if (isset($_SESSION['user_id'])): ?>
               <li><a href="account.php"><?= __('my_account'); ?></a></li>
-              <li><a href="logout.php" class="logout-btn"><?= __('logout'); ?></a></li>
+              <li>
+                <a href="logout.php" class="logout-btn"
+                  data-title="<?= __('exit_alert'); ?>""
+                  data-yes=" <?= __('yes_button'); ?>"
+                  data-no="<?= __('no_button'); ?>">
+                  <?= __('logout'); ?>
+                </a>
+              </li>
             <?php else: ?>
               <li><a href="login.php"><?= __('login'); ?></a></li>
               <li><a href="register.php"><?= __('register'); ?></a></li>

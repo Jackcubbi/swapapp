@@ -11,19 +11,6 @@ window.addEventListener("scroll", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Функция для подтверждения предложений обмена
-  const tradeLinks = document.querySelectorAll('a[href^="trade.php"]');
-  tradeLinks.forEach((link) => {
-    link.addEventListener("click", function (event) {
-      const confirmation = confirm(
-        "Вы уверены, что хотите предложить обмен этим товаром?"
-      );
-      if (!confirmation) {
-        event.preventDefault();
-      }
-    });
-  });
-
   // Всплывающее уведомление при успешных действиях
   const notification = document.querySelector(".notification");
   if (notification) {
@@ -142,15 +129,18 @@ document.addEventListener("DOMContentLoaded", function () {
   if (logoutButton) {
     logoutButton.addEventListener("click", function (event) {
       event.preventDefault(); // Останавливаем стандартное действие по ссылке
+      const title = this.getAttribute("data-title");
+      const yesButtonText = this.getAttribute("data-yes");
+      const noButtonText = this.getAttribute("data-no");
 
       Swal.fire({
-        title: "Вы точно уверены, что хотите выйти?",
+        title: title,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Да",
-        cancelButtonText: "Нет",
+        confirmButtonText: yesButtonText,
+        cancelButtonText: noButtonText,
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.href = this.href; // Переходим по ссылке для выхода
@@ -159,3 +149,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+//Checking Swap offer button on product item
+/* document.addEventListener("DOMContentLoaded", function () {
+  const tradeButtons = document.querySelectorAll(".trade-btn");
+
+  tradeButtons.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); // Предотвращаем переход по ссылке
+
+      Swal.fire({
+        title: "Вы уверены?",
+        text: "Вы хотите предложить обмен?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Да, предложить!",
+        cancelButtonText: "Отмена",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Если пользователь подтвердил, перенаправляем на страницу обмена
+          window.location.href = this.href;
+        }
+      });
+    });
+  });
+}); */
