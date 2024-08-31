@@ -14,9 +14,6 @@ $userId = $_SESSION['user_id'];
 // Получаем текущий язык из сессии или куки
 $currentLang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'ru';
 
-
-var_dump($_SESSION['lang']);
-
 // Получаем все товары, добавленные текущим пользователем
 $stmt = $db->prepare("
     SELECT items.id, items.image, items.price, items_lang.name, items_lang.description
