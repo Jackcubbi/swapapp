@@ -25,7 +25,12 @@ return [
   'product_edit'          => 'Edit product',
   'description'           => 'Description',
   'picture'               => 'Picture',
+  'picture'               => 'Picture',
   'change_picture_blank'  => "leave blank if you don't want to change",
+  'products_swap'         => 'Offer an products swap',
+  'swap_select_product'   => 'Select your item for swap',
+  'swap_offer'            => 'Offer an swap',
+
 
 
   // Добавьте другие переводы

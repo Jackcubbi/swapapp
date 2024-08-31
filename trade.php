@@ -24,16 +24,16 @@ $user_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <?php include 'includes/header.php'; ?>
 
-<h2>Предложить обмен</h2>
+<h2><?= __('products_swap'); ?></h2>
 <form method="POST">
-  <label for="item_from_id">Выберите свой товар для обмена:</label>
+  <label for="item_from_id"><?= __('swap_select_product'); ?>:</label>
   <select name="item_from_id" required>
     <?php foreach ($user_items as $item): ?>
       <option value="<?= $item['id']; ?>"><?= $item['name']; ?></option>
     <?php endforeach; ?>
   </select>
 
-  <button type="submit">Предложить обмен</button>
+  <button type="submit"><?= __('swap_offer'); ?></button>
 </form>
 
 <?php include 'includes/footer.php'; ?>
