@@ -63,11 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- EN -->
     <div class="language-fields" data-lang="en" style="display: none;">
       <label for="name_en"><?= __('product_title'); ?> (<?= __('language_en'); ?>):</label>
-      <input type="text" name="name_en" required>
+      <input type="text" name="name_en">
       <label for="description_en"><?= __('description'); ?> (<?= __('language_en'); ?>):</label>
-      <textarea name="description_en" required></textarea>
+      <textarea name="description_en"></textarea>
     </div>
-
+    <!-- Добавьте блоки для других языков при необходимости -->
   </div>
 
   <label for="price"><?= __('price'); ?> €:</label>

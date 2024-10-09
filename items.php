@@ -1,16 +1,18 @@
 <?php
 include 'config/db.php';
 include 'includes/header.php';
+include_once 'includes/functions.php';
 
 // Получение текущего языка из сессии или куки
 $currentLang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'ru';
 
 // Обновленный SQL-запрос
 $stmt = $db->prepare("
-    SELECT items.*, users.username, items_lang.name, items_lang.description
-    FROM items
-    JOIN users ON items.user_id = users.id
-    JOIN items_lang ON items.id = items_lang.item_id AND items_lang.language = ?
+    SELECT items.id, items.image, items.price, items_lang.name, items_lang.description, users.username 
+    FROM items 
+    JOIN users ON items.user_id = users.id 
+    JOIN items_lang ON items.id = items_lang.item_id 
+    WHERE items_lang.language = ?
 ");
 $stmt->execute([$currentLang]);
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC); ?>
