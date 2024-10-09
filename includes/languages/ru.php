@@ -34,6 +34,8 @@ return [
   'yes_button'            => 'Да',
   'no_button'             => 'Нет',
   'select_language'       => 'Выбор языка',
+  'language_ru'           => 'Русский',
+  'language_en'           => 'English',
 
   // Добавьте другие переводы
 ];

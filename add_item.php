@@ -55,16 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div id="fields-container">
     <!-- RU -->
     <div class="language-fields" data-lang="ru">
-      <label for="name_ru"><?= __('product_title'); ?> (Русский):</label>
+      <label for="name_ru"><?= __('product_title'); ?> (<?= __('language_ru'); ?>):</label>
       <input type="text" name="name_ru">
-      <label for="description_ru"><?= __('description'); ?> (Русский):</label>
+      <label for="description_ru"><?= __('description'); ?> (<?= __('language_ru'); ?>):</label>
       <textarea name="description_ru"></textarea>
     </div>
     <!-- EN -->
     <div class="language-fields" data-lang="en" style="display: none;">
-      <label for="name_en"><?= __('product_title'); ?> (English):</label>
+      <label for="name_en"><?= __('product_title'); ?> (<?= __('language_en'); ?>):</label>
       <input type="text" name="name_en" required>
-      <label for="description_en"><?= __('description'); ?> (English):</label>
+      <label for="description_en"><?= __('description'); ?> (<?= __('language_en'); ?>):</label>
       <textarea name="description_en" required></textarea>
     </div>
 

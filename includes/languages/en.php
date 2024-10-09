@@ -35,6 +35,8 @@ return [
   'yes_button'            => 'Yes',
   'no_button'             => 'No',
   'select_language'       => 'Select language',
+  'language_ru'           => 'Russian',
+  'language_en'           => 'English',
 
 
 
