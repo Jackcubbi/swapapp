@@ -1,6 +1,6 @@
-# SwapApp - Item Trading Platform
+# SwapApp - Item Exchange Platform
 
-A modern web application for trading items between users, built with Laravel 11 and Vue 3.
+A modern web application for swap items between users, built with Laravel 11 and Vue 3.
 
 ## 🚀 Features
 
