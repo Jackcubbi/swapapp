@@ -1,21 +1,112 @@
-# Vertocci.com project .gitignore folders and files.
+# SwapApp - Laravel 11 + Vue 3 Project
 
-# Uploads
+# ===================================
+# Backend (Laravel)
+# ===================================
+/backend/vendor/
+/backend/node_modules/
+/backend/.env
+/backend/.env.backup
+/backend/.env.production
+/backend/.phpunit.result.cache
+/backend/Homestead.json
+/backend/Homestead.yaml
+/backend/auth.json
+/backend/npm-debug.log
+/backend/yarn-error.log
+/backend/.fleet
+/backend/.idea
+/backend/.vscode
+
+# Laravel Storage & Cache
+/backend/storage/*.key
+/backend/storage/logs/*.log
+/backend/storage/framework/cache/*
+/backend/storage/framework/sessions/*
+/backend/storage/framework/testing/*
+/backend/storage/framework/views/*
+/backend/bootstrap/cache/*
+/backend/public/storage
+/backend/public/hot
+
+# ===================================
+# Frontend (Vue 3 + Vite)
+# ===================================
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.env
+/frontend/.env.local
+/frontend/.env.*.local
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/pnpm-debug.log*
+/frontend/.DS_Store
+
+# Frontend IDE
+/frontend/.vscode/
+/frontend/.idea/
+/frontend/*.suo
+/frontend/*.ntvs*
+/frontend/*.njsproj
+/frontend/*.sln
+/frontend/*.sw?
+
+# ===================================
+# Uploads & Media
+# ===================================
 /uploads/
-/public/images/
+/backend/storage/app/public/items/*
+!/backend/storage/app/public/items/.gitkeep
+
+# ===================================
+# Dependencies
+# ===================================
+vendor/
 node_modules/
-public/css/
 package-lock.json
+composer.lock
 
+# ===================================
+# OS & IDE Files
+# ===================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.project
+.settings/
+.buildpath
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
 
-# Dependensies
-/vendor/
-
-
-
-# Log files
+# ===================================
+# Logs
+# ===================================
 *.log
+error_log
+npm-debug.log
+yarn-debug.log
+yarn-error.log
 
-# htaccess
-/.htaccess
-/error_log
+# ===================================
+# Build & Temp Files
+# ===================================
+*.cache
+.sass-cache/
+*.css.map
+*.scss.map
+/public/css/
+/public/js/
+
+# ===================================
+# Documentation & Setup Scripts
+# ===================================
+# Keep these for reference
+!/README.md
+!/QUICKSTART.md
+!/install.bat
+!/install.sh
